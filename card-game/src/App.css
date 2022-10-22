@@ -6,6 +6,35 @@
   height: 40vmin;
   pointer-events: none;
 }
+.App {
+  max-width: 860px;
+  margin: 40px auto;
+}
+button {
+  background: #282c34;
+  border: 2px solid rgb(199, 19, 19);
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: rgb(86, 27, 197);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+}
+button:hover {
+  background: #c23866;
+  color: rgb(24, 9, 241);
+}
+.front,
+.back {
+  width: 50%;
+  height: 50% !important;
+}
+.card-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
