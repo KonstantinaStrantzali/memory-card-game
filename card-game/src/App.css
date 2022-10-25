@@ -1,34 +1,24 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 .App {
   max-width: 860px;
   margin: 40px auto;
+  color: white;
 }
 button {
-  background: #282c34;
-  border: 2px solid rgb(199, 19, 19);
+  background: #F1151F;
+  border: white;
   padding: 6px 12px;
   border-radius: 4px;
-  color: rgb(86, 27, 197);
+  color: white;
   font-weight: bold;
   cursor: pointer;
   font-size: 1em;
 }
 button:hover {
-  background: #c23866;
-  color: rgb(24, 9, 241);
+  background: white;
+  color: #F1151F;
 }
-.front,
-.back {
-  width: 50%;
-  height: 50% !important;
-}
+
 .card-grid {
   margin-top: 40px;
   display: grid;
@@ -42,20 +32,7 @@ button:hover {
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {

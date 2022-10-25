@@ -1,20 +1,20 @@
 import React from 'react'
-import classes from './Card.module.css'
+import './Card.css'
 
-function Card({card, handleChoice}) {
+function Card({card, handleChoice, flipped}) {
     
-    const userClick = (event) => {
+    const userClick = () => {
       handleChoice(card)     
     }
  
   return (
-    <div>
-    <div className={classes.card}>
-    <img  src={card.src} alt="card front" />
-    <img  src="/img/cover.jpg" alt="cover" onClick={userClick}/>
-  </div>
-  </div>
-  )
+      <div className="card">
+        <div className={flipped ? "flipped" : ""}>
+          <img className="front" src={card.src} alt="card front" />
+          <img className="back" src="/img/cover.jpg" onClick={userClick} alt="cover" />
+        </div>
+      </div>
+    )
 }
 
 export default Card
