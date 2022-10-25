@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Card from './components/Card'
+import Modal from './components/Modal/Modal'
 
 const cardImages = [
   { "src": "/img/batman.webp", matched: false },
   { "src": "/img/captain-america.jpg", matched: false },
   { "src": "/img/spiderman.jpg", matched: false },
+  { "src": "/img/thorn.webp", matched: false },
+  { "src": "/img/iron-man.webp", matched: false },
+  { "src": "/img/hulk.webp", matched: false },
+  { "src": "/img/iron-man.webp", matched: false },
+  { "src": "/img/hulk.webp", matched: false },
 ]
 
 function App() {
@@ -13,6 +19,8 @@ function App() {
   const [turns, setTurns] = useState(0)
   const [choiceOne, setChoiceOne] = useState(null)
   const [choiceTwo, setChoiceTwo] = useState(null)
+  const [show, setShow] = useState(true)
+  const [modal, setModal] = useState(false)
 
   // shuffle cards for new game
   const shuffleCards = () => {
@@ -22,6 +30,7 @@ function App() {
       
     setCards(shuffledCards)
     setTurns(0)
+    setShow(false)
   }
 
   // handle a choice
@@ -45,14 +54,25 @@ function App() {
           })
         })
         resetTurn()
+        
       } else {
         setTimeout(() => resetTurn(), 1000)
       }
-
     }
   }, [choiceOne, choiceTwo])
 
-  console.log(cards)
+
+  useEffect(() => {
+
+    if(turns === 1) {
+      setModal(true)
+      shuffleCards()
+    }
+
+  }, [turns])
+
+
+
 
   // reset choices & increase turn
   const resetTurn = () => {
@@ -61,13 +81,32 @@ function App() {
     setTurns(prevTurns => prevTurns + 1)
   }
 
+  const closeModal = () => {
+    setModal(null)
+    
+  }
+
   return (
     <div className="App">
-      <h1>Marvel Memory Game</h1>
-      <button onClick={shuffleCards}>New Game</button>
+      {modal && (
+        <div>
+          <Modal closeModal={closeModal}/>
+        </div>
+      )
+
+      }
+     
+      {show && (
+        <div>
+        <h1>Marvel Memory Game</h1>
+        <button onClick={shuffleCards} >New Game</button>
+        </div>
+      )}
 
       <div className="card-grid">
+
         {cards.map(card => (
+          
           <Card 
             key={card.id}
             card={card}
@@ -76,6 +115,13 @@ function App() {
           />
         ))}
       </div>
+
+      {!show && (
+        <div>
+        <h3>Turns {turns} / 10 </h3>
+        <button onClick={shuffleCards} >New Game</button>
+        </div>
+      )}
 
     </div>
   );
