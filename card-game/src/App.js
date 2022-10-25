@@ -3,9 +3,9 @@ import './App.css'
 import Card from './components/Card'
 
 const cardImages = [
-  { "src": "/img/batman.webp" },
-  { "src": "/img/spiderman.jpg" },
-  { "src": "/img/captain-america.jpg" },
+  { "src": "/img/batman.webp", "matched": "false" },
+  { "src": "/img/spiderman.jpg", "matched": "false" },
+  { "src": "/img/captain-america.jpg","matched": "false" },
  
 ]
 
@@ -33,7 +33,16 @@ function App() {
 useEffect(() => {
   if (choiceOne && choiceTwo) {
     if (choiceOne.src === choiceTwo.src) {
-    console.log("These cards match")
+    setCards(previousState => {
+      return previousState.map(card => {
+        if (card.src === choiceOne.src){
+          return {...card, matched: true}
+        }
+        else {
+          return card
+        }
+      })
+    })
     resetTurns()
   }
     else {
@@ -50,6 +59,8 @@ useEffect(() => {
   setChoiceTwo(null)
   setTurns(prev => prev + 1)
  }
+
+ console.log(cards)
 
   return (
     <div className="App">
