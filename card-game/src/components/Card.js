@@ -4,8 +4,9 @@ import classes from './Card.module.css'
 function Card({card, handleChoice}) {
     
     const userClick = (event) => {
-      handleChoice(card)
+      handleChoice(card)     
     }
+ 
   return (
     <div>
     <div className={classes.card}>

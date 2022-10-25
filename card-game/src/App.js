@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Card from './components/Card'
 
@@ -14,6 +14,7 @@ function App() {
   const [turns, setTurns] = useState(0)
   const [choiceOne, setChoiceOne] = useState(null)
   const [choiceTwo, setChoiceTwo] = useState(null)
+  console.log(setChoiceOne)
 
   // shuffle cards for new game
   const shuffleCards = () => {
@@ -26,8 +27,28 @@ function App() {
   }
 
  const handleChoice = (card) => {
-  choiceOne ? setChoiceOne(card) : setChoiceTwo(card)
+  choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+ }
 
+useEffect(() => {
+  if (choiceOne && choiceTwo) {
+    if (choiceOne.src === choiceTwo.src) {
+    console.log("These cards match")
+    resetTurns()
+  }
+    else {
+    console.log("These cards dont match")
+    resetTurns()
+  }
+  }
+},[choiceOne, choiceTwo])
+ 
+ 
+
+ const resetTurns = () => {
+  setChoiceOne(null)
+  setChoiceTwo(null)
+  setTurns(prev => prev + 1)
  }
 
   return (
