@@ -5,6 +5,11 @@
   margin: 40px auto;
   color: white;
 }
+.logo{
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
 button {
   background: #F1151F;
   border: white;

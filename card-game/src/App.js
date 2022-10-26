@@ -103,7 +103,9 @@ function App() {
      
       {show && (
         <div>
-        <h1>Marvel Memory Game</h1>
+        <h2>Welcome to Marvel Memory Game</h2>
+        <img className="logo" src="/img/marvel_logo.jpg" alt="card front" />
+        <h3>Flip the cards and match the tiles together in pairs while having only 15 turns! </h3>
         <button onClick={shuffleCards} >New Game</button>
         </div>
       )}
@@ -124,7 +126,7 @@ function App() {
 
       {!show && (
         <div>
-        <h3>Turns {turns} / 10 </h3>
+        <p>Turns {turns} / 15 </p>
         <button onClick={shuffleCards} >New Game</button>
         </div>
       )}

@@ -8,7 +8,7 @@ function Modal({closeModal}) {
     
     <div className={classes.modal}>
         <div className={classes.content}>
-          <h1>Oh no! You run out of turns!</h1>
+          <h1>Oh no! You ran out of turns!</h1>
           <button onClick={closeModal}>Try again</button>
         </div>
         
