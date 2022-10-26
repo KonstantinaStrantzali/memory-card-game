@@ -4,14 +4,17 @@ import Card from './components/Card'
 import Modal from './components/Modal/Modal'
 
 const cardImages = [
-  { "src": "/img/batman.webp", matched: false },
+  { "src": "/img/shuri.jpg", matched: false },
   { "src": "/img/captain-america.jpg", matched: false },
   { "src": "/img/spiderman.jpg", matched: false },
   { "src": "/img/thorn.webp", matched: false },
   { "src": "/img/iron-man.webp", matched: false },
   { "src": "/img/hulk.webp", matched: false },
-  { "src": "/img/iron-man.webp", matched: false },
-  { "src": "/img/hulk.webp", matched: false },
+  { "src": "/img/ant-man.webp", matched: false },
+  { "src": "/img/black-panther.webp", matched: false },
+  { "src": "/img/Black-Widow.jpg", matched: false },
+  { "src": "/img/rocket.jpg", matched: false },
+  
 ]
 
 function App() {
@@ -64,7 +67,7 @@ function App() {
 
   useEffect(() => {
 
-    if(turns === 1) {
+    if(turns === 10) {
       setModal(true)
       shuffleCards()
     }
